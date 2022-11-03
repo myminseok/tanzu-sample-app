@@ -3,7 +3,7 @@ LOCAL_PATH = os.getenv("LOCAL_PATH", default='.')
 NAMESPACE = os.getenv("NAMESPACE", default='default')
 
 k8s_custom_deploy(
-    'tanzu-java-web-app',
+    'tanzu-sample-app',
     apply_cmd="tanzu apps workload apply -f config/workload.yaml --live-update" +
                " --local-path " + LOCAL_PATH +
                " --source-image " + SOURCE_IMAGE +
@@ -20,3 +20,5 @@ k8s_custom_deploy(
 
 k8s_resource('tanzu-sample-app', port_forwards=["8080:8080"],
             extra_pod_selectors=[{'serving.knative.dev/service': 'tanzu-sample-app'}])
+
+allow_k8s_contexts('tkc-avi2-admin@tkc-avi2')
