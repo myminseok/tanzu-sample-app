@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: tanzu-sample-app
+  description: Tanzu Java Web App
+  tags:
+    - app-accelerator
+    - java
+    - spring
+    - web
+    - tanzu
+  annotations:
+    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=tanzu-sample-app'
+  links:
+    - url: http://tanzu-sample-app.default.apps.tap.lab.pcfdemo.net
+      title: tanzu-sample-app
+      icon: dashboard
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default-team
+  system: tanzu-sample-app
